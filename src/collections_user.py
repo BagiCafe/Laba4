@@ -78,27 +78,31 @@ class IndexDict:
 
     def append_book(self, book):
         """Добавляем книгу во все индексы"""
+        if book.isbn in self.isbn:
+            return
         self.isbn[book.isbn] = book
 
         if book.author not in self.author:
             self.author[book.author] = []
-        self.author[book.author].append(book)
+        if book not in self.author[book.author]:
+            self.author[book.author].append(book)
 
         if book.year not in self.year:
             self.year[book.year] = []
-        self.year[book.year].append(book)
+        if book not in self.year[book.year]:
+            self.year[book.year].append(book)
 
     def remove_book(self, book):
         """Удаляем книгу из всех индексов"""
         if book.isbn in self.isbn:
             del self.isbn[book.isbn]
 
-        if book.author in self.author:
+        if book.author in self.author and book in self.author[book.author]:
             self.author[book.author].remove(book)
             if not self.author[book.author]:
                 del self.author[book.author]
 
-        if book.year in self.year:
+        if book.year in self.year and book in self.year[book.year]:
             self.year[book.year].remove(book)
             if not self.year[book.year]:
                 del self.year[book.year]
