@@ -8,7 +8,7 @@ class Library:
     Args:
         name: Название библиотеки
         books: Коллекция всех книг
-        index: Индекс для быстрого поиска книг
+        index: Индекс для поиска книг
     """
     def __init__(self, name: str = "Главная библиотека"):
         self.name = name
