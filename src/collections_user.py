@@ -22,11 +22,11 @@ class BookCollection:
         """Проверяем содержится ли книга в коллекции"""
         return book in self.books
 
-    def append(self, book):
+    def append_collection(self, book):
         """Добавляет книгу в коллекцию"""
         self.books.append(book)
 
-    def remove(self, book):
+    def remove_collection(self, book):
         """Удаляет книгу из коллекции"""
         if book in self.books:
             self.books.remove(book)

@@ -203,7 +203,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
 def main():
     print(f"Параметры симуляции")
     steps = int(input("Количество шагов: "))
-    seed = input("Сид (Enter для случайного): ")
+    seed = input("Seed (Enter для случайного): ")
 
     if seed == "":
         seed = None
@@ -211,7 +211,7 @@ def main():
         try:
             seed = int(seed)
         except ValueError:
-            print("Неверный формат сида, используется случайный")
+            print("Неверный формат seed, используется случайный")
             seed = None
 
     run_simulation(steps=steps, seed=seed)

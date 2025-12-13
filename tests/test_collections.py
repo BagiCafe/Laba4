@@ -10,50 +10,50 @@ class TestBookCollection:
     def test_add_one_book(self):
         collection = BookCollection()
         book = Book("Гарри Поттер и философский камень", "Джоан Роулинг", 1997, "Фэнтези", "444")
-        collection.append(book)
+        collection.append_collection(book)
         assert len(collection) == 1
 
     def test_add_books(self):
         collection = BookCollection()
         book1 = Book("Гарри Поттер и философский камень", "Джоан Роулинг", 1997, "Фэнтези", "444")
         book2 = Book("Мастер и Маргарита", "Булгаков", 1967, "Роман", "222")
-        collection.append(book1)
-        collection.append(book2)
+        collection.append_collection(book1)
+        collection.append_collection(book2)
         assert len(collection) == 2
 
     def test_collection_contains(self):
         collection = BookCollection()
         book = Book("Наруто", "Кисимото", 1999, "Сёнен", "333")
-        collection.append(book)
+        collection.append_collection(book)
         assert book in collection
 
     def test_collection_not_contains(self):
         collection = BookCollection()
         book1 = Book("Гарри Поттер и философский камень", "Джоан Роулинг", 1997, "Фэнтези", "444")
         book2 = Book("Мастер и Маргарита", "Булгаков", 1967, "Роман", "222")
-        collection.append(book1)
+        collection.append_collection(book1)
         assert book2 not in collection
 
     def test_get_first_book(self):
         collection = BookCollection()
         book = Book("451° по Фаренгейту", "Рэй Брэдбери", 1953, "Научная фантастика", "000")
-        collection.append(book)
+        collection.append_collection(book)
         assert collection[0] == book
 
     def test_iterate_collection(self):
         collection = BookCollection()
         book1 = Book("1984", "Оруэлл", 1949, "Антиутопия", "111")
         book2 = Book("Мастер и Маргарита", "Булгаков", 1967, "Роман", "222")
-        collection.append(book1)
-        collection.append(book2)
+        collection.append_collection(book1)
+        collection.append_collection(book2)
         books = list(collection)
         assert books == [book1, book2]
 
     def test_remove_book(self):
         collection = BookCollection()
         book = Book("Наруто", "Кисимото", 1999, "Сёнен", "333")
-        collection.append(book)
-        collection.remove(book)
+        collection.append_collection(book)
+        collection.remove_collection(book)
         assert len(collection) == 0
 
 

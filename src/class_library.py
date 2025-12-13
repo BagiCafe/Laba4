@@ -20,13 +20,13 @@ class Library:
 
     def append_book(self, book) -> None:
         """"Добавляет книгу в библиотеку"""
-        self.books.append(book)
+        self.books.append_collection(book)
         self.index.append_book(book)
 
     def remove_book(self, book) -> None:
         """Удаляет книгу из библиотеки"""
         if book in self.books:
-            self.books.remove(book)
+            self.books.remove_collection(book)
             self.index.remove_book(book)
 
     def search_isbn(self, isbn: str):
