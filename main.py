@@ -12,7 +12,7 @@ def creating_library():
         FictionBook("Мастер и Маргарита", "Михаил Булгаков", 1967, "Роман", "333", 480),
         FictionBook("Гарри Поттер и философский камень", "Джоан Роулинг", 1997, "Фэнтези", "444", 223),
         ComicBook("Ходячие мертвецы", "Роберт Киркман", 2003, "Хоррор", "555", "графический роман"),
-        ComicBook("Наруто", "Масаси Кисимото", 1999, "Сёнен", "666", "манга"),
+        ComicBook("Наруто Книга 1", "Масаси Кисимото", 1999, "Сёнен", "666", "манга"),
         ComicBook("Человек-паук: Удивительная фантазия", "Стэн Ли", 1962, "Супергерои", "777", "комикс"),
         ComicBook("Клинок, рассекающий демонов", "Койохару Готогэ", 2016, "Сёнен", "888", "манга"),
         ComicBook("Люди Икс", "Стэн Ли", 1963, "Супергерои", "999", "комикс")
@@ -28,8 +28,8 @@ def creating_books():
         FictionBook("Мёртвые души", "Николай Гоголь", 1842, "Поэма", "002", 464),
         FictionBook("Три мушкетёра", "Александр Дюма", 1844, "Исторический роман", "003", 704),
         ComicBook("Человек-бензопила", "Тацуки Фудзимото", 2018, "Сёнен", "004", "манга"),
-        ComicBook("Мстители", "Стэн Ли", 1963, "Супергерои", "978-0785152493", "комикс"),
-        ComicBook("Наруто", "Масаси Кисимото", 1999, "Сёнен", "666", "манга")
+        ComicBook("Мстители", "Стэн Ли", 1963, "Супергерои", "005", "комикс"),
+        ComicBook("Наруто Книга 2", "Масаси Кисимото", 1999, "Сёнен", "006", "манга")
     ]
 
 def add_book(library, books_pool):
@@ -72,7 +72,7 @@ def find_author(library, books_pool=None):
             for i in range(len(found_books)):
                 book = found_books[i]
                 print(f"    {i+1}. {book}")
-    except Exception:
+    except KeyError:
         print(f"  Найдено: 0 книг")
 
 def find_year(library, books_pool=None):
@@ -86,7 +86,7 @@ def find_year(library, books_pool=None):
             for i in range(len(found_books)):
                 book = found_books[i]
                 print(f"    {i+1}. {book}")
-    except Exception:
+    except KeyError:
         print(f"  Найдено: 0 книг")
 
 def find_genre(library, books_pool=None):
@@ -105,7 +105,7 @@ def find_genre(library, books_pool=None):
             for i in range(len(found_books)):
                 book = found_books[i]
                 print(f"    {i+1}. {book}")
-    except Exception:
+    except KeyError:
         print(f"  Найдено: 0 книг")
 
 def update_index(library, books_pool=None):
@@ -159,7 +159,7 @@ def find_nonexistent(library, books_pool=None):
             print(f"    ОШИБКА: найдено {len(found)} книг")
         else:
             print("    Книги не найдены")
-    except Exception:
+    except KeyError:
         print("    Книги не найдены")
 
     print("  Тест 3: Несуществующий год")
@@ -169,7 +169,7 @@ def find_nonexistent(library, books_pool=None):
             print(f"    ОШИБКА: найдено {len(found)} книг")
         else:
             print("    Книги не найдены")
-    except Exception:
+    except KeyError:
         print("    Книги не найдены")
 
 def run_simulation(steps: int = 20, seed: int | None = None) -> None:
